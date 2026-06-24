@@ -761,7 +761,7 @@ Get Started with <strong style="color:yellow;">Agents DeTLeng</strong>
 .detleng-sticky-btn{
     position:fixed;
     bottom:20px;
-    right:20px;
+    left:20px;
 
     display:flex;
     align-items:center;
@@ -809,7 +809,7 @@ Get Started with <strong style="color:yellow;">Agents DeTLeng</strong>
 
 .detleng-sticky-btn{
     bottom:10px;
-    right:10px;
+    left:10px;
 
     padding:14px 20px;
     font-size:16px;
