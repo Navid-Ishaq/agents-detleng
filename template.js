@@ -71,7 +71,41 @@ DeTLeng Site →
 
 
 
+/* ==========================================================
+   DeTLeng Automatic Active Menu Detection
+   Automatically highlights the current page in the navigation
+   Works for all pages including Home (index.html)
+========================================================== */
 
+<script>
+
+     document.addEventListener("DOMContentLoaded", () => {
+
+    let currentPage = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+    if(currentPage === ""){
+        currentPage = "index.html";
+    }
+
+    document.querySelectorAll(".menu-links a").forEach(link => {
+
+        let linkPage = link.getAttribute("href")
+            .toLowerCase();
+
+        if(linkPage === currentPage){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+</script>
+/* ==========================================================
+   END - DeTLeng Automatic Active Menu Detection
+========================================================== */
 
 
 
