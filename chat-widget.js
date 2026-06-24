@@ -190,15 +190,25 @@ color:#374151;
 
 <div style="
 margin-top:18px;
-padding:14px;
-background:#eff6ff;
+padding:16px;
+background:linear-gradient(135deg,#eff6ff,#dbeafe);
 border-radius:12px;
 text-align:center;
 font-weight:700;
 color:#2563eb;
+line-height:1.7;
 ">
 
-✨ We Will Talk Soon...
+🚀 <strong>Launching Soon!</strong>
+
+<br><br>
+
+Our AI Assistant is getting ready to help you with
+AI Agents, Automation and Data Engineering.
+
+<br><br>
+
+✨ Stay tuned — we'll be talking very soon.
 
 </div>
 
@@ -247,6 +257,32 @@ box-shadow:
 
 }
 
+/* ==========================================
+   Popup Animation
+========================================== */
+
+@keyframes popupFadeIn{
+
+0%{
+
+opacity:0;
+transform:translateY(20px) scale(.96);
+
+}
+
+100%{
+
+opacity:1;
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
 @media(max-width:768px){
 
 #detleng-ai-bubble{
@@ -279,6 +315,8 @@ bottom:100px !important;
 
 document.head.appendChild(style);
 
+document.head.appendChild(style);
+
 
 /* ==========================================================
    Events
@@ -286,7 +324,18 @@ document.head.appendChild(style);
 
 bubble.onclick = function(){
 
-popup.style.display = "block";
+    if(
+        popup.style.display === "none" ||
+        popup.style.display === ""
+    ){
+
+        popup.style.display = "block";
+
+    }else{
+
+        popup.style.display = "none";
+
+    }
 
 };
 
