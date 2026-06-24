@@ -73,11 +73,26 @@ DeTLeng Site →
 
 
 
-/* ==========================================================
-   DeTLeng Automatic Active Menu Detection
-   Automatically highlights the current page in the navigation
-   Works for all pages including Home (index.html)
-========================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 
@@ -105,9 +120,7 @@ DeTLeng Site →
 
 });
 </script>
-/* ==========================================================
-   END - DeTLeng Automatic Active Menu Detection
-========================================================== */
+
 
 
 
