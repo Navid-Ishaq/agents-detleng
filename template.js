@@ -496,7 +496,7 @@ h1{
 
 
 
-<section class="detleng-content">
+`);
 
 
 
@@ -517,7 +517,7 @@ h1{
 
 
 
-
+document.body.insertAdjacentHTML("afterbegin", `
 
 
 
