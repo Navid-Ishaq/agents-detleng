@@ -1,27 +1,34 @@
 (function () {
 
 /* ==========================================================
-   AL-NOOR AI Assistant Bubble Widget
-   Version 1.0
+   Agents DeTLeng AI Assistant Widget
+   Version 2.0
    ========================================================== */
 
+/* ==========================================================
+   Bubble
+========================================================== */
+
 const bubble = document.createElement("div");
+
+bubble.id = "detleng-ai-bubble";
 
 bubble.innerHTML = `
 <div style="
 display:flex;
 flex-direction:column;
 align-items:center;
-line-height:1.05;
+justify-content:center;
+line-height:1.1;
 ">
-<div style="font-size:26px;">🤖</div>
-<div style="font-size:18px;">Hola</div>
+<div style="font-size:28px;">🤖</div>
+<div style="font-size:18px;font-weight:700;">Hola</div>
 </div>
 `;
 
 bubble.style.position = "fixed";
 bubble.style.bottom = "20px";
-bubble.style.left = "20px";
+bubble.style.right = "20px";
 
 bubble.style.width = "82px";
 bubble.style.height = "82px";
@@ -31,45 +38,198 @@ bubble.style.borderRadius = "50%";
 bubble.style.background =
 "linear-gradient(135deg,#2563eb,#06b6d4)";
 
-bubble.style.color = "#ffffff";
+bubble.style.color = "#fff";
 
 bubble.style.display = "flex";
 bubble.style.alignItems = "center";
 bubble.style.justifyContent = "center";
 
-bubble.style.fontFamily =
-"'Segoe UI', Arial, sans-serif";
-
-bubble.style.fontWeight = "700";
-
 bubble.style.cursor = "pointer";
+
+bubble.style.fontFamily =
+"'Segoe UI',Arial,sans-serif";
+
+bubble.style.boxShadow =
+"0 8px 22px rgba(37,99,235,.45)";
 
 bubble.style.userSelect = "none";
 
-bubble.style.zIndex = "99999";
-
-bubble.style.boxShadow =
-"0 0 15px rgba(37,99,235,.45),0 0 30px rgba(6,182,212,.25)";
+bubble.style.zIndex = "999999";
 
 bubble.style.animation =
-"holaPulse 1.8s infinite";
+"detlengPulse 1.8s infinite";
+
 
 /* ==========================================================
-   Animation
+   Popup
+========================================================== */
+
+const popup = document.createElement("div");
+
+popup.id = "detleng-popup";
+
+popup.style.position = "fixed";
+
+popup.style.right = "20px";
+
+popup.style.bottom = "115px";
+
+popup.style.width = "360px";
+
+popup.style.maxWidth = "92vw";
+
+popup.style.background = "#ffffff";
+
+popup.style.borderRadius = "18px";
+
+popup.style.boxShadow =
+"0 10px 40px rgba(0,0,0,.20)";
+
+popup.style.border =
+"1px solid #dbeafe";
+
+popup.style.display = "none";
+
+popup.style.zIndex = "999999";
+
+popup.innerHTML = `
+
+<div style="
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+padding:18px;
+color:white;
+border-radius:18px 18px 0 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<div>
+
+<div style="
+font-size:22px;
+font-weight:700;
+">
+
+🤖 Agents DeTLeng
+
+</div>
+
+<div style="
+font-size:13px;
+opacity:.9;
+margin-top:4px;
+">
+
+AI Assistant
+
+</div>
+
+</div>
+
+<div id="closeDetlengPopup"
+style="
+cursor:pointer;
+font-size:22px;
+font-weight:bold;
+">
+✕
+</div>
+
+</div>
+
+
+<div style="
+padding:22px;
+font-family:'Segoe UI',Arial,sans-serif;
+">
+
+<div style="
+font-size:20px;
+font-weight:700;
+color:#111827;
+margin-bottom:12px;
+">
+
+👋 Hello!
+
+</div>
+
+<p style="
+font-size:15px;
+line-height:1.8;
+color:#444;
+margin:0;
+">
+
+Thank you for visiting
+<b>Agents DeTLeng.</b>
+
+<br><br>
+
+🚀 Our AI Assistant is currently under development.
+
+<br><br>
+
+Very soon you'll be able to chat with us about:
+
+</p>
+
+<ul style="
+margin-top:14px;
+line-height:2;
+color:#374151;
+">
+
+<li>🤖 AI Agents</li>
+
+<li>⚙ Business Automation</li>
+
+<li>📊 Data Engineering</li>
+
+<li>🔄 ETL Pipelines</li>
+
+<li>☁ Cloud Solutions</li>
+
+<li>💡 AI Consulting</li>
+
+</ul>
+
+<div style="
+margin-top:18px;
+padding:14px;
+background:#eff6ff;
+border-radius:12px;
+text-align:center;
+font-weight:700;
+color:#2563eb;
+">
+
+✨ We Will Talk Soon...
+
+</div>
+
+</div>
+
+`;
+
+
+/* ==========================================================
+   CSS
 ========================================================== */
 
 const style = document.createElement("style");
 
 style.innerHTML = `
 
-@keyframes holaPulse{
+@keyframes detlengPulse{
 
 0%{
 
 transform:scale(1);
 
 box-shadow:
-0 0 10px rgba(37,99,235,.45);
+0 0 12px rgba(37,99,235,.35);
 
 }
 
@@ -78,8 +238,8 @@ box-shadow:
 transform:scale(1.12);
 
 box-shadow:
-0 0 18px rgba(37,99,235,.75),
-0 0 32px rgba(6,182,212,.45);
+0 0 24px rgba(37,99,235,.70),
+0 0 40px rgba(6,182,212,.40);
 
 }
 
@@ -88,35 +248,35 @@ box-shadow:
 transform:scale(1);
 
 box-shadow:
-0 0 10px rgba(37,99,235,.45);
+0 0 12px rgba(37,99,235,.35);
 
 }
 
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
-#alnoor-hola-bubble{
+#detleng-ai-bubble{
 
 width:72px !important;
+
 height:72px !important;
 
-left:15px !important;
+right:15px !important;
+
 bottom:15px !important;
 
 }
 
-#alnoor-hola-bubble div:first-child{
+#detleng-popup{
 
-font-size:22px !important;
+right:10px !important;
 
-}
+left:10px !important;
 
-#alnoor-hola-bubble div:last-child{
+width:auto !important;
 
-font-size:16px !important;
+bottom:100px !important;
 
 }
 
@@ -126,31 +286,40 @@ font-size:16px !important;
 
 document.head.appendChild(style);
 
-bubble.id = "alnoor-hola-bubble";
 
 /* ==========================================================
-   Future API Placeholder
+   Events
 ========================================================== */
 
-bubble.addEventListener("click", function(){
+bubble.onclick = function(){
 
-// Future:
-// Open AI Assistant
-// Connect API
-// Launch Chat Window
+popup.style.display = "block";
 
-console.log("AL-NOOR AI Assistant - Coming Soon");
+};
+
+
+document.addEventListener("click",function(e){
+
+if(e.target.id==="closeDetlengPopup"){
+
+popup.style.display="none";
+
+}
 
 });
 
+
 /* ==========================================================
-   Render Bubble
+   Render
 ========================================================== */
 
 document.body.appendChild(bubble);
 
+document.body.appendChild(popup);
+
+
 /* ==========================================================
-   END - AL-NOOR AI Assistant Bubble Widget
+   END
 ========================================================== */
 
 })();
