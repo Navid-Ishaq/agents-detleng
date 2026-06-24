@@ -627,22 +627,20 @@ h1{
 
 
      
-  <!-- ===== START DETLENG AUTHOR SIGNATURE BLOCK ===== -->
+<!-- ===== START DETLENG AUTHOR SIGNATURE BLOCK ===== -->
 
-
-<div style="margin:40px 0 20px 0;padding:28px;border-radius:18px;background:linear-gradient(135deg,#f8fbff,#eef6ff);border:1px solid #dbeafe;box-shadow:0 6px 18px rgba(0,0,0,0.08);">
+<div style="margin:40px 0 20px 0;padding:28px;border-radius:18px;background:linear-gradient(135deg,#f8fbff,#eef6ff);border:1px solid #dbeafe;box-shadow:0 6px 18px rgba(0,0,0,0.08);text-align:center;">
 
   <h3 style="margin:0 0 12px 0;font-size:30px;color:#111827;">
-<span style="color:#2563eb;">About DeTLeng</span>
-  
-  <p style="margin:0 0 18px 0;font-size:18px;line-height:1.7;color:#374151;">
-       <span style="color:green;font-weight:700;">DeTLeng Ecosystem</span>
-    </h3>
+    <span style="color:#2563eb;">About DeTLeng</span>
+  </h3>
 
+  <p style="margin:0 0 18px 0;font-size:18px;line-height:1.8;color:#374151;">
+    <span style="color:#16a34a;font-weight:700;">DeTLeng Ecosystem</span><br><br>
     Data Engineering • AI Agents • Automation • Applied Intelligence
   </p>
 
-  <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:15px;">
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin-top:15px;">
 
     <a href="https://www.detleng.com" target="_blank"
        style="text-decoration:none;padding:10px 16px;border-radius:50px;background:#2563eb;color:#fff;font-weight:600;">
@@ -670,10 +668,8 @@ h1{
     </a>
 
   </div>
-  
- 
 
-  <div style="margin-top:22px;padding-top:18px;border-top:1px solid #dbeafe;">
+  <div style="margin-top:22px;padding-top:18px;border-top:1px solid #dbeafe;text-align:center;">
 
     <p style="margin:0;font-size:15px;line-height:1.8;color:#64748b;">
       Transform Complexity into Clarity • Transform Information into Understanding • Transform Knowledge into Value
