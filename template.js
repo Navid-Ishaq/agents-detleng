@@ -162,9 +162,7 @@ nav a.active {
 
 
      
-/* ===========================
-   DeTLeng Professional Menu
-=========================== */
+
 
 .detleng-nav{
 
