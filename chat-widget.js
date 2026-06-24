@@ -22,7 +22,7 @@ justify-content:center;
 line-height:1.1;
 ">
 <div style="font-size:28px;">🤖</div>
-<div style="font-size:18px;font-weight:700;">Hola</div>
+<div style="font-size:18px;font-weight:700;">Ask AI</div>
 </div>
 `;
 
@@ -100,7 +100,7 @@ padding:18px;
 color:white;
 border-radius:18px 18px 0 0;
 display:flex;
-justify-content:space-between;
+justify-content:flex-start;
 align-items:center;
 ">
 
@@ -127,14 +127,7 @@ AI Assistant
 
 </div>
 
-<div id="closeDetlengPopup"
-style="
-cursor:pointer;
-font-size:22px;
-font-weight:bold;
-">
-✕
-</div>
+
 
 </div>
 
