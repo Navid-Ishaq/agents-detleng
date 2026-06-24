@@ -83,6 +83,19 @@ DeTLeng Site →
 
 
 
+<section>
+
+
+
+
+</section>
+
+
+
+
+
+
+
 
 
 
@@ -496,50 +509,6 @@ h1{
 
 
 
-`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
-
-
-
-
-
-document.body.insertAdjacentHTML("afterbegin", `
 
 
 
