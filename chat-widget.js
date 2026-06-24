@@ -1,297 +1,156 @@
 (function () {
 
-// =========================
-// CHAT BUBBLE
-// =========================
+/* ==========================================================
+   AL-NOOR AI Assistant Bubble Widget
+   Version 1.0
+   ========================================================== */
 
 const bubble = document.createElement("div");
 
-bubble.innerHTML = "Hola";
+bubble.innerHTML = `
+<div style="
+display:flex;
+flex-direction:column;
+align-items:center;
+line-height:1.05;
+">
+<div style="font-size:26px;">🤖</div>
+<div style="font-size:18px;">Hola</div>
+</div>
+`;
 
 bubble.style.position = "fixed";
 bubble.style.bottom = "20px";
-bubble.style.right = "20px";
+bubble.style.left = "20px";
 
-bubble.style.width = "80px";
-bubble.style.height = "80px";
+bubble.style.width = "82px";
+bubble.style.height = "82px";
 
 bubble.style.borderRadius = "50%";
 
-bubble.style.background = "#2563eb"; // #006400 Dark Green
-bubble.style.color = "white";
+bubble.style.background =
+"linear-gradient(135deg,#2563eb,#06b6d4)";
+
+bubble.style.color = "#ffffff";
 
 bubble.style.display = "flex";
 bubble.style.alignItems = "center";
 bubble.style.justifyContent = "center";
 
-bubble.style.fontSize = "22px";
-bubble.style.fontWeight = "bold";
-bubble.style.fontFamily = "Arial, sans-serif";
+bubble.style.fontFamily =
+"'Segoe UI', Arial, sans-serif";
+
+bubble.style.fontWeight = "700";
 
 bubble.style.cursor = "pointer";
+
+bubble.style.userSelect = "none";
+
 bubble.style.zIndex = "99999";
 
 bubble.style.boxShadow =
-  "0 4px 15px rgba(0,0,0,.3)";
+"0 0 15px rgba(37,99,235,.45),0 0 30px rgba(6,182,212,.25)";
 
 bubble.style.animation =
-  "holaBlink 1.2s infinite";
+"holaPulse 1.8s infinite";
 
-// Create animation
+/* ==========================================================
+   Animation
+========================================================== */
+
 const style = document.createElement("style");
 
 style.innerHTML = `
-@keyframes holaBlink {
 
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
+@keyframes holaPulse{
 
-  50% {
-    opacity: 0.35;
-    transform: scale(1.15);
-  }
+0%{
 
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+transform:scale(1);
+
+box-shadow:
+0 0 10px rgba(37,99,235,.45);
 
 }
+
+50%{
+
+transform:scale(1.12);
+
+box-shadow:
+0 0 18px rgba(37,99,235,.75),
+0 0 32px rgba(6,182,212,.45);
+
+}
+
+100%{
+
+transform:scale(1);
+
+box-shadow:
+0 0 10px rgba(37,99,235,.45);
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+#alnoor-hola-bubble{
+
+width:72px !important;
+height:72px !important;
+
+left:15px !important;
+bottom:15px !important;
+
+}
+
+#alnoor-hola-bubble div:first-child{
+
+font-size:22px !important;
+
+}
+
+#alnoor-hola-bubble div:last-child{
+
+font-size:16px !important;
+
+}
+
+}
+
 `;
 
 document.head.appendChild(style);
 
-  // =========================
-  // CHAT PANEL
-  // =========================
+bubble.id = "alnoor-hola-bubble";
 
-  const panel = document.createElement("div");
+/* ==========================================================
+   Future API Placeholder
+========================================================== */
 
-  panel.style.position = "fixed";
-  panel.style.bottom = "90px";
-  panel.style.right = "20px";
-  panel.style.width = "360px";
-  panel.style.height = "520px";
-  panel.style.background = "#ffffff";
-  panel.style.border = "1px solid #ddd";
-  panel.style.borderRadius = "12px";
-  panel.style.display = "none";
-  panel.style.zIndex = "99999";
-  panel.style.boxShadow = "0 4px 20px rgba(0,0,0,.2)";
-  panel.style.overflow = "hidden";
+bubble.addEventListener("click", function(){
 
-  panel.innerHTML = `
-  <div style="
-    background:#2563eb;
-    color:white;
-    padding:12px;
-    font-weight:bold;
-    font-size:16px;
-  ">
-    AL-NOOR AI Assistant
-  </div>
+// Future:
+// Open AI Assistant
+// Connect API
+// Launch Chat Window
 
-  <div id="chatMessages"
-      style="
-        height:360px;
-        padding:12px;
-        overflow-y:auto;
-        font-size:14px;
-        line-height:1.6;
-      ">
+console.log("AL-NOOR AI Assistant - Coming Soon");
 
-    <div style="
-        background:#f5f7ff;
-        padding:10px;
-        border-radius:8px;
-        margin-bottom:10px;
-    ">
+});
 
-      👋 Welcome to AL-NOOR Educational Centre.
+/* ==========================================================
+   Render Bubble
+========================================================== */
 
-      <br><br>
+document.body.appendChild(bubble);
 
-      🌍 You can ask course questions in:
-
-     <ul style="display:flex; flex-wrap:wrap; gap:10px 30px;">
-  <li>English</li>
-  <li>Spanish</li>
-  <li>Urdu</li>
-  <li>Roman Urdu</li>
-  <li>Hindi</li>
-  <li>Punjabi</li>
-  <li>Bengali</li>
-  <li>Nepali</li>
-</ul>
-
-📚 Ask me anything about AL-NOOR Educational Centre.
-
-<ul style="display:flex; flex-wrap:wrap; gap:10px 30px;">
-  <li>Courses</li>
-  <li>Fees</li>
-  <li>Timing</li>
-  <li>Registration</li>
-  <li>Course Duration</li>
-</ul>
-
-    </div>
-
-  </div>
-
-  <div style="
-      padding:10px;
-      border-top:1px solid #ddd;
-      display:flex;
-      gap:8px;
-  ">
-
-    <input
-      id="chatInput"
-      type="text"
-      placeholder="Ask your question..."
-      style="
-        flex:1;
-        padding:8px;
-        border:1px solid #ccc;
-        border-radius:6px;
-      "
-    />
-
-    <button
-      id="sendBtn"
-      style="
-        padding:8px 12px;
-        background:#2563eb;
-        color:white;
-        border:none;
-        border-radius:6px;
-        cursor:pointer;
-      ">
-      Send
-    </button>
-
-  </div>
-  `;
-
-  // =========================
-  // OPEN CLOSE
-  // =========================
-
-  bubble.onclick = () => {
-
-    panel.style.display =
-      panel.style.display === "none"
-      ? "block"
-      : "none";
-
-  };
-
-  document.body.appendChild(bubble);
-  document.body.appendChild(panel);
-
-  // =========================
-  // CHAT LOGIC
-  // =========================
-
-function makeLinksClickable(text) {
-  return text.replace(
-    /(https?:\/\/[^\s<]+)/g,
-    function(url) {
-
-      const cleanUrl = url.replace(/[.,!?;:]+$/, '');
-
-      return `<a href="${cleanUrl}" target="_blank"
-        style="color:#2563eb;font-weight:bold;">
-        ${cleanUrl}
-      </a>`;
-    }
-  );
-}
-
-  setTimeout(() => {
-
-    const sendBtn =
-      document.getElementById("sendBtn");
-
-    const chatInput =
-      document.getElementById("chatInput");
-
-    const chatMessages =
-      document.getElementById("chatMessages");
-
-    sendBtn.onclick = async () => {
-
-      const question = chatInput.value.trim();
-
-      if (!question) return;
-
-      chatMessages.innerHTML += `
-        <div style="margin-top:10px;">
-          <b>You:</b> ${question}
-        </div>
-      `;
-
-      chatInput.value = "";
-
-      try {
-
-        const response = await fetch(
-          "https://aapkaustaad-ai-backend.onrender.com/chat",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              message: question
-            })
-          }
-        );
-
-        const data = await response.json();
-
-        chatMessages.innerHTML += `
-          <div style="
-            margin-top:10px;
-            padding:8px;
-            background:#f7f7f7;
-            border-radius:8px;
-          ">
-            <b>AL-NOOR:</b><br>
-            ${makeLinksClickable(data.answer)}
-          </div>
-        `;
-
-      } catch (err) {
-
-        chatMessages.innerHTML += `
-          <div style="
-            color:red;
-            margin-top:10px;
-          ">
-            Unable to connect to AI server.
-          </div>
-        `;
-
-      }
-
-      chatMessages.scrollTop =
-        chatMessages.scrollHeight;
-    };
-
-    chatInput.addEventListener(
-      "keypress",
-      function(e){
-
-        if(e.key === "Enter"){
-          sendBtn.click();
-        }
-
-      }
-    );
-
-  }, 500);
+/* ==========================================================
+   END - AL-NOOR AI Assistant Bubble Widget
+========================================================== */
 
 })();
