@@ -1,3 +1,5 @@
+document.body.insertAdjacentHTML("afterbegin", `
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="faviconidl.png">
 <div style="height:90px;"></div>
@@ -821,3 +823,6 @@ href="mailto:info@detleng.com?subject=Free%20Consultation%20Request&body=Hello%2
 
 </body>
 </html>
+
+
+`);
