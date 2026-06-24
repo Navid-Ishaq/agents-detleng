@@ -498,7 +498,7 @@ h1{
 
 `);
 
-<section class="detleng-content">
+<section>
 
 
 
