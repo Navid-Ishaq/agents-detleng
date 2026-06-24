@@ -757,13 +757,15 @@ Get Started with <strong style="color:yellow;">Agents DeTLeng</strong>
 
 
 
-<style>
-/* DeTLeng Sticky Consultation Button */
-
 .detleng-sticky-btn{
     position:fixed;
     bottom:20px;
     right:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
 
     background:linear-gradient(
         135deg,
@@ -793,16 +795,15 @@ Get Started with <strong style="color:yellow;">Agents DeTLeng</strong>
 }
 
 .detleng-sticky-btn:hover{
-    background: linear-gradient(
-    135deg,
-    #003FC7 0%,
-    #0A63FF 70%,
-    #F7941D 100%
-);
+    background:linear-gradient(
+        135deg,
+        #003FC7 0%,
+        #0A63FF 70%,
+        #F7941D 100%
+    );
     transform:translateY(-2px);
 }
 
-/* Mobile Friendly */
 @media (max-width:768px){
 
 .detleng-sticky-btn{
@@ -810,19 +811,17 @@ Get Started with <strong style="color:yellow;">Agents DeTLeng</strong>
     right:10px;
 
     padding:14px 20px;
-
     font-size:16px;
-
     border-radius:10px;
 }
-}
 
-</style>
+}
 
 <a class="detleng-sticky-btn"
 href="mailto:info@detleng.com?subject=Free%20Consultation%20Request&body=Hello%20Agents%20DeTLeng%20Team,%0D%0A%0D%0AMy%20name%20is:%20________________%0D%0A%0D%0AI%20would%20like%20a%20free%20consultation%20regarding:%0D%0A%0D%0AProject%20Type:%20________________%0D%0AData%20Source:%20________________%0D%0AExpected%20Outcome:%20________________%0D%0ADeadline:%20________________%0D%0AAdditional%20Requirements:%20________________%0D%0A%0D%0ARegards,%0D%0A________________">
 
-👉 <span style="color:white;">Consult |</span> <span style="color:#FFD700;"> Agents DeTLeng</span>
+📧 <span style="color:#ffffff;">Consult |</span>
+<span style="color:#FFD700;">Agents DeTLeng</span>
 
 </a>
 
