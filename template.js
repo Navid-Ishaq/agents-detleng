@@ -190,6 +190,12 @@ nav a.active {
 
     box-sizing:border-box;
 
+    justify-content:center;
+    
+    position:fixed;
+
+    overflow:visible;
+
 }
 
 .detleng-logo{
@@ -246,8 +252,7 @@ nav a.active {
 
     gap:28px;
 
-    margin-left:120px;
-    margin-right:20px;
+    padding-left:110px;
 
 }
 
