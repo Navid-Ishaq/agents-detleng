@@ -194,10 +194,15 @@ nav a.active {
 
 .detleng-logo{
 
+    display:flex;
+    align-items:center;
+
     position:absolute;
 
     left:20px;
-    top:15px;
+
+    top:50%;
+    transform:translateY(-50%);
 
     z-index:999;
 
@@ -237,9 +242,12 @@ nav a.active {
 
     align-items:center;
 
-    gap:25px;
+    flex:1;
 
-    margin-top:10px;
+    gap:28px;
+
+    margin-left:120px;
+    margin-right:20px;
 
 }
 
