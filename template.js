@@ -732,7 +732,7 @@ animation:blink 1.5s infinite;
 
 
 <span class="detleng-finger">👉</span>
-Get Started with <strong style="color:yellow;">Agents DeTLeng</strong>
+Discover how <strong style="color:yellow;">Agents DeTLeng</strong> transforms information into smarter decisions
 <span class="detleng-finger">👈</span>
 
 </a>
