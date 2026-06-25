@@ -76,19 +76,21 @@ popup.style.bottom = "115px";
 
 popup.style.width = "420px";
 
+popup.style.overflow = "hidden";
+
 popup.style.height = "560px";
 
 popup.style.maxWidth = "92vw";
 
 popup.style.background = "#ffffff";
 
-popup.style.borderRadius = "18px";
+popup.style.borderRadius = "22px";
 
 popup.style.boxShadow =
-"0 10px 40px rgba(0,0,0,.20)";
+"0 18px 50px rgba(15,23,42,.18), 0 8px 20px rgba(37,99,235,.15)";
 
 popup.style.border =
-"1px solid #dbeafe";
+"1px solid rgba(191,219,254,.9)";
 
 popup.style.display = "none";
 
@@ -212,18 +214,19 @@ text-align:center;
 font-weight:700;
 color:#2563eb;
 line-height:1.7;
+border:1px solid #bfdbfe;
 ">
 
-🚀 <strong>Launching Soon!</strong>
+🚀 <strong>AI Assistant Launching Soon</strong>
 
 <br><br>
 
-Our AI Assistant is getting ready to help you with
-AI Agents, Automation and Data Engineering.
+We are building an intelligent AI assistant to help you with
+AI Agents, Business Automation, Data Engineering and Cloud Solutions.
 
 <br><br>
 
-✨ Stay tuned — we'll be talking very soon.
+✨ Stay tuned — exciting features are coming very soon.
 
 </div>
 
