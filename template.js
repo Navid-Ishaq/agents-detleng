@@ -838,6 +838,8 @@ console.log("Current Page:", window.location.pathname);
 
 console.log(document.querySelector(".menu-links"));
 
+console.log(document.querySelectorAll(".menu-links a").length);
+
 let currentPage = window.location.pathname
     .split("/")
     .pop()
