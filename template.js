@@ -2,7 +2,6 @@ document.body.insertAdjacentHTML("afterbegin", `
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="faviconidl.png">
-<div style="height:90px;"></div>
 
 <nav class="detleng-nav">
 
@@ -174,6 +173,10 @@ nav a.active {
     left:0;
 
     width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
 
     background:#ffffff;
 
@@ -330,6 +333,10 @@ body{
     line-height:1.8;
 
     font-size:18px;
+
+    padding-top:90px;
+
+    margin:0;
 
 }
 
