@@ -831,3 +831,10 @@ href="mailto:info@detleng.com?subject=Free%20Consultation%20Request&body=Hello%2
 
 
 `);
+
+console.log("Template Loaded");
+
+console.log("Current Page:", window.location.pathname);
+
+console.log(document.querySelector(".menu-links"));
+
