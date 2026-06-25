@@ -285,43 +285,55 @@ nav a.active {
 
     .menu-links{
 
-        display:none;
+    display:none;
 
-        flex-direction:column;
+    flex-direction:column;
 
-        position:absolute;
+    position:absolute;
 
-        top:70px;
+    top:90px;
 
-        right:15px;
+    right:15px;
 
-        background:#ffffff;
+    width:260px;
 
-        padding:20px;
+    background:#ffffff;
 
-        border-radius:12px;
+    border-radius:14px;
 
-        box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    padding:20px;
 
-        min-width:140px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 
-        text-align:right;
+    border:1px solid #eeeeee;
 
-        gap:15px;
+    gap:18px;
 
-        z-index:99999;
+    z-index:99999;
 
-    }
+}
 
     .menu-links a{
 
-        display:block;
+    display:block;
 
-        font-size:18px;
+    text-align:left;
 
-        color:#111;
+    padding:10px 0;
 
-    }
+    font-size:17px;
+
+    color:#111;
+
+    border-bottom:1px solid #f2f2f2;
+
+}
+
+.menu-links a:last-child{
+
+    border-bottom:none;
+
+}
 
     #menu-toggle:checked ~ .menu-links{
 
