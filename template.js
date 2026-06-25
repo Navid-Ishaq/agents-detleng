@@ -98,27 +98,23 @@ DeTLeng Site →
 
 <script>
 
-     document.addEventListener("DOMContentLoaded", () => {
+     let currentPage = window.location.pathname
+    .split("/")
+    .pop()
+    .toLowerCase();
 
-    let currentPage = window.location.pathname
-        .split("/")
-        .pop()
+if(currentPage === ""){
+    currentPage = "index.html";
+}
+
+document.querySelectorAll(".menu-links a").forEach(link => {
+
+    let linkPage = link.getAttribute("href")
         .toLowerCase();
 
-    if(currentPage === ""){
-        currentPage = "index.html";
+    if(linkPage === currentPage){
+        link.classList.add("active");
     }
-
-    document.querySelectorAll(".menu-links a").forEach(link => {
-
-        let linkPage = link.getAttribute("href")
-            .toLowerCase();
-
-        if(linkPage === currentPage){
-            link.classList.add("active");
-        }
-
-    });
 
 });
 </script>
