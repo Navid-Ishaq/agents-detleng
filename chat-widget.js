@@ -74,7 +74,9 @@ popup.style.right = "20px";
 
 popup.style.bottom = "115px";
 
-popup.style.width = "360px";
+popup.style.width = "420px";
+
+popup.style.height = "560px";
 
 popup.style.maxWidth = "92vw";
 
@@ -95,20 +97,22 @@ popup.style.zIndex = "999999";
 popup.innerHTML = `
 
 <div style="
-background:linear-gradient(135deg,#2563eb,#06b6d4);
-padding:18px;
-color:white;
+background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 45%,#06b6d4 100%);
+padding:20px;
+color:#ffffff;
 border-radius:18px 18px 0 0;
 display:flex;
-justify-content:flex-start;
+justify-content:space-between;
 align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.10);
 ">
 
 <div>
 
 <div style="
-font-size:22px;
+font-size:26px;
 font-weight:700;
+line-height:1.2;
 ">
 
 🤖 Agents DeTLeng
@@ -116,25 +120,36 @@ font-weight:700;
 </div>
 
 <div style="
-font-size:13px;
-opacity:.9;
-margin-top:4px;
+font-size:14px;
+opacity:.95;
+margin-top:5px;
+letter-spacing:.3px;
 ">
 
-AI Assistant
+Your Intelligent AI Assistant
 
 </div>
 
 </div>
-
-
-
-</div>
-
 
 <div style="
+font-size:28px;
+opacity:.75;
+">
+
+✨
+
+</div>
+
+</div>
+
+<div id="detleng-popup-body" style="
 padding:22px;
 font-family:'Segoe UI',Arial,sans-serif;
+height:360px;
+overflow-y:auto;
+overflow-x:hidden;
+scroll-behavior:smooth;
 ">
 
 <div style="
@@ -308,6 +323,36 @@ width:auto !important;
 bottom:100px !important;
 
 }
+
+}
+
+/* ==========================================
+   Custom Scrollbar
+========================================== */
+
+#detleng-popup-body::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+#detleng-popup-body::-webkit-scrollbar-track{
+
+background:#f1f5f9;
+border-radius:10px;
+
+}
+
+#detleng-popup-body::-webkit-scrollbar-thumb{
+
+background:#60a5fa;
+border-radius:10px;
+
+}
+
+#detleng-popup-body::-webkit-scrollbar-thumb:hover{
+
+background:#2563eb;
 
 }
 
