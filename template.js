@@ -838,3 +838,26 @@ console.log("Current Page:", window.location.pathname);
 
 console.log(document.querySelector(".menu-links"));
 
+let currentPage = window.location.pathname
+    .split("/")
+    .pop()
+    .toLowerCase();
+
+if (currentPage === "") currentPage = "index.html";
+
+document.querySelectorAll(".menu-links a").forEach(link => {
+
+    let linkPage = link.getAttribute("href").toLowerCase();
+
+    console.log(linkPage, "==", currentPage);
+
+    if (linkPage === currentPage) {
+
+        console.log("MATCH FOUND:", link.textContent);
+
+        link.classList.add("active");
+
+    }
+
+});
+
