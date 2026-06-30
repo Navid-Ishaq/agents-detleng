@@ -145,15 +145,6 @@ opacity:.75;
 
 </div>
 
-<div id="detleng-popup-body" style="
-padding:22px;
-font-family:'Segoe UI',Arial,sans-serif;
-height:360px;
-overflow-y:auto;
-overflow-x:hidden;
-scroll-behavior:smooth;
-">
-
 <div style="
 font-size:20px;
 font-weight:700;
@@ -161,7 +152,65 @@ color:#111827;
 margin-bottom:12px;
 ">
 
-👋 Hello!
+👋 Welcome!
+
+</div>
+
+<p style="
+font-size:15px;
+line-height:1.8;
+color:#444;
+margin:0;
+">
+
+Thank you for visiting
+<b>Agents DeTLeng.</b>
+
+<br><br>
+
+I'm your AI Assistant.
+
+<br><br>
+
+You can ask me about:
+
+</p>
+
+<ul style="
+margin-top:14px;
+line-height:2;
+color:#374151;
+">
+
+<li>🤖 AI Agents</li>
+
+<li>⚙ Intelligent Automation</li>
+
+<li>💼 Business Applications</li>
+
+<li>📚 Resources</li>
+
+<li>📖 Case Studies</li>
+
+<li>🌐 DeTLeng Ecosystem</li>
+
+<li>📞 Contact Information</li>
+
+</ul>
+
+<div style="
+margin-top:18px;
+padding:16px;
+background:linear-gradient(135deg,#eff6ff,#dbeafe);
+border-radius:12px;
+text-align:center;
+font-weight:600;
+color:#2563eb;
+line-height:1.7;
+border:1px solid #bfdbfe;
+">
+
+Ask your question below in any language.
 
 </div>
 
@@ -229,6 +278,45 @@ AI Agents, Business Automation, Data Engineering and Cloud Solutions.
 ✨ Stay tuned — exciting features are coming very soon.
 
 </div>
+
+</div>
+
+<div style="
+padding:12px;
+border-top:1px solid #ddd;
+display:flex;
+gap:8px;
+background:#fff;
+">
+
+<input
+id="chatInput"
+type="text"
+placeholder="Ask your question..."
+style="
+flex:1;
+padding:10px;
+border:1px solid #d1d5db;
+border-radius:8px;
+font-size:14px;
+outline:none;
+">
+
+<button
+id="sendBtn"
+style="
+padding:10px 16px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+">
+
+Ask AI
+
+</button>
 
 </div>
 
@@ -365,6 +453,24 @@ document.head.appendChild(style);
 
 document.head.appendChild(style);
 
+function makeLinksClickable(text){
+
+  return text.replace(
+    /(https?:\/\/[^\s<]+)/g,
+    function(url){
+
+      const cleanUrl = url.replace(/[.,!?;:]+$/, '');
+
+      return `<a href="${cleanUrl}"
+        target="_blank"
+        style="color:#2563eb;font-weight:600;">
+        ${cleanUrl}
+      </a>`;
+
+    }
+  );
+
+}
 
 /* ==========================================================
    Events
@@ -387,6 +493,117 @@ bubble.onclick = function(){
 
 };
 
+setTimeout(() => {
+
+  const sendBtn = document.getElementById("sendBtn");
+  const chatInput = document.getElementById("chatInput");
+  const chatBody = document.getElementById("detleng-popup-body");
+
+  let chatHistory = [];
+
+  async function sendMessage(){
+
+    const question = chatInput.value.trim();
+
+    if(!question) return;
+
+    chatBody.innerHTML += `
+      <div style="
+        margin-top:15px;
+        text-align:right;
+      ">
+        <div style="
+          display:inline-block;
+          background:#2563eb;
+          color:#fff;
+          padding:10px 14px;
+          border-radius:12px;
+          max-width:85%;
+        ">
+          ${question}
+        </div>
+      </div>
+    `;
+
+    chatInput.value = "";
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    try{
+
+      const response = await fetch(
+        "https://aapkaustaad-ai-backend.onrender.com/chat",
+        {
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+            message:question,
+            domain:window.location.origin,
+            history:chatHistory
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      const answer = data.answer || "Sorry, no response available.";
+
+      chatHistory.push({
+        role:"user",
+        content:question
+      });
+
+      chatHistory.push({
+        role:"assistant",
+        content:answer
+      });
+
+      chatBody.innerHTML += `
+        <div style="margin-top:15px;">
+          <div style="
+            display:inline-block;
+            background:#f3f4f6;
+            padding:12px;
+            border-radius:12px;
+            max-width:90%;
+            line-height:1.7;
+          ">
+            <b>🤖 Agents DeTLeng</b><br><br>
+            ${makeLinksClickable(answer)}
+          </div>
+        </div>
+      `;
+
+    }catch(err){
+
+      chatBody.innerHTML += `
+        <div style="
+          margin-top:15px;
+          color:red;
+        ">
+          Unable to connect to AI server.
+        </div>
+      `;
+
+    }
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+  }
+
+  sendBtn.onclick = sendMessage;
+
+  chatInput.addEventListener("keypress",function(e){
+
+    if(e.key==="Enter"){
+      sendMessage();
+    }
+
+  });
+
+},500);
 
 document.addEventListener("click",function(e){
 
