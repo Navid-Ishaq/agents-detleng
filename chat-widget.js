@@ -1,17 +1,10 @@
 (function () {
 
-/* ==========================================================
-   Agents DeTLeng AI Assistant Widget
-   Version 2.0
-   ========================================================== */
-
-/* ==========================================================
-   Bubble
-========================================================== */
+// =========================
+// CHAT BUBBLE
+// =========================
 
 const bubble = document.createElement("div");
-
-bubble.id = "detleng-ai-bubble";
 
 bubble.innerHTML = `
 <div style="
@@ -21,8 +14,19 @@ align-items:center;
 justify-content:center;
 line-height:1.1;
 ">
-<div style="font-size:28px;">🤖</div>
-<div style="font-size:18px;font-weight:700;">Ask AI</div>
+
+<div style="font-size:28px;">
+🤖
+</div>
+
+<div style="
+font-size:18px;
+font-weight:700;
+margin-top:2px;
+">
+Ask AI
+</div>
+
 </div>
 `;
 
@@ -38,314 +42,45 @@ bubble.style.borderRadius = "50%";
 bubble.style.background =
 "linear-gradient(135deg,#2563eb,#06b6d4)";
 
-bubble.style.color = "#fff";
+bubble.style.color = "white";
 
 bubble.style.display = "flex";
 bubble.style.alignItems = "center";
 bubble.style.justifyContent = "center";
 
-bubble.style.cursor = "pointer";
-
 bubble.style.fontFamily =
 "'Segoe UI',Arial,sans-serif";
+
+bubble.style.cursor = "pointer";
+
+bubble.style.userSelect = "none";
+
+bubble.style.zIndex = "99999";
 
 bubble.style.boxShadow =
 "0 8px 22px rgba(37,99,235,.45)";
 
-bubble.style.userSelect = "none";
-
-bubble.style.zIndex = "999999";
-
 bubble.style.animation =
-"detlengPulse 1.8s infinite";
+"aiPulse 1.8s infinite";
 
 
-/* ==========================================================
-   Popup
-========================================================== */
-
-const popup = document.createElement("div");
-
-popup.id = "detleng-popup";
-
-popup.style.position = "fixed";
-
-popup.style.right = "20px";
-
-popup.style.bottom = "115px";
-
-popup.style.width = "420px";
-
-popup.style.overflow = "hidden";
-
-popup.style.height = "560px";
-
-popup.style.maxWidth = "92vw";
-
-popup.style.background = "#ffffff";
-
-popup.style.borderRadius = "22px";
-
-popup.style.boxShadow =
-"0 18px 50px rgba(15,23,42,.18), 0 8px 20px rgba(37,99,235,.15)";
-
-popup.style.border =
-"1px solid rgba(191,219,254,.9)";
-
-popup.style.display = "none";
-
-popup.style.zIndex = "999999";
-
-popup.innerHTML = `
-
-<div style="
-background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 45%,#06b6d4 100%);
-padding:20px;
-color:#ffffff;
-border-radius:18px 18px 0 0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.10);
-">
-
-<div>
-
-<div style="
-font-size:26px;
-font-weight:700;
-line-height:1.2;
-">
-
-🤖 Agents DeTLeng
-
-</div>
-
-<div style="
-font-size:14px;
-opacity:.95;
-margin-top:5px;
-letter-spacing:.3px;
-">
-
-Your Intelligent AI Assistant
-
-</div>
-
-</div>
-
-<div style="
-font-size:28px;
-opacity:.75;
-">
-
-✨
-
-</div>
-
-</div>
-
-<div style="
-font-size:20px;
-font-weight:700;
-color:#111827;
-margin-bottom:12px;
-">
-
-👋 Welcome!
-
-</div>
-
-<p style="
-font-size:15px;
-line-height:1.8;
-color:#444;
-margin:0;
-">
-
-Thank you for visiting
-<b>Agents DeTLeng.</b>
-
-<br><br>
-
-I'm your AI Assistant.
-
-<br><br>
-
-You can ask me about:
-
-</p>
-
-<ul style="
-margin-top:14px;
-line-height:2;
-color:#374151;
-">
-
-<li>🤖 AI Agents</li>
-
-<li>⚙ Intelligent Automation</li>
-
-<li>💼 Business Applications</li>
-
-<li>📚 Resources</li>
-
-<li>📖 Case Studies</li>
-
-<li>🌐 DeTLeng Ecosystem</li>
-
-<li>📞 Contact Information</li>
-
-</ul>
-
-<div style="
-margin-top:18px;
-padding:16px;
-background:linear-gradient(135deg,#eff6ff,#dbeafe);
-border-radius:12px;
-text-align:center;
-font-weight:600;
-color:#2563eb;
-line-height:1.7;
-border:1px solid #bfdbfe;
-">
-
-Ask your question below in any language.
-
-</div>
-
-<p style="
-font-size:15px;
-line-height:1.8;
-color:#444;
-margin:0;
-">
-
-Thank you for visiting
-<b>Agents DeTLeng.</b>
-
-<br><br>
-
-🚀 Our AI Assistant is currently under development.
-
-<br><br>
-
-Very soon you'll be able to chat with us about:
-
-</p>
-
-<ul style="
-margin-top:14px;
-line-height:2;
-color:#374151;
-">
-
-<li>🤖 AI Agents</li>
-
-<li>⚙ Business Automation</li>
-
-<li>📊 Data Engineering</li>
-
-<li>🔄 ETL Pipelines</li>
-
-<li>☁ Cloud Solutions</li>
-
-<li>💡 AI Consulting</li>
-
-</ul>
-
-<div style="
-margin-top:18px;
-padding:16px;
-background:linear-gradient(135deg,#eff6ff,#dbeafe);
-border-radius:12px;
-text-align:center;
-font-weight:700;
-color:#2563eb;
-line-height:1.7;
-border:1px solid #bfdbfe;
-">
-
-🚀 <strong>AI Assistant Launching Soon</strong>
-
-<br><br>
-
-We are building an intelligent AI assistant to help you with
-AI Agents, Business Automation, Data Engineering and Cloud Solutions.
-
-<br><br>
-
-✨ Stay tuned — exciting features are coming very soon.
-
-</div>
-
-</div>
-
-<div style="
-padding:12px;
-border-top:1px solid #ddd;
-display:flex;
-gap:8px;
-background:#fff;
-">
-
-<input
-id="chatInput"
-type="text"
-placeholder="Ask your question..."
-style="
-flex:1;
-padding:10px;
-border:1px solid #d1d5db;
-border-radius:8px;
-font-size:14px;
-outline:none;
-">
-
-<button
-id="sendBtn"
-style="
-padding:10px 16px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-weight:600;
-">
-
-Ask AI
-
-</button>
-
-</div>
-
-`;
-
-
-/* ==========================================================
-   CSS
-========================================================== */
+// Create animation
 
 const style = document.createElement("style");
 
 style.innerHTML = `
-
-@keyframes detlengPulse{
+@keyframes aiPulse{
 
 0%{
 
 transform:scale(1);
-
-box-shadow:
-0 0 12px rgba(37,99,235,.35);
+box-shadow:0 0 12px rgba(37,99,235,.35);
 
 }
 
 50%{
 
 transform:scale(1.12);
-
 box-shadow:
 0 0 24px rgba(37,99,235,.70),
 0 0 40px rgba(6,182,212,.40);
@@ -355,278 +90,286 @@ box-shadow:
 100%{
 
 transform:scale(1);
-
-box-shadow:
-0 0 12px rgba(37,99,235,.35);
+box-shadow:0 0 12px rgba(37,99,235,.35);
 
 }
 
 }
-
-/* ==========================================
-   Popup Animation
-========================================== */
-
-@keyframes popupFadeIn{
-
-0%{
-
-opacity:0;
-transform:translateY(20px) scale(.96);
-
-}
-
-100%{
-
-opacity:1;
-transform:translateY(0) scale(1);
-
-}
-
-}
-
-/* ==========================================
-   Mobile
-========================================== */
-
-@media(max-width:768px){
-
-#detleng-ai-bubble{
-
-width:72px !important;
-
-height:72px !important;
-
-right:15px !important;
-
-bottom:15px !important;
-
-}
-
-#detleng-popup{
-
-right:10px !important;
-
-left:10px !important;
-
-width:auto !important;
-
-bottom:100px !important;
-
-}
-
-}
-
-/* ==========================================
-   Custom Scrollbar
-========================================== */
-
-#detleng-popup-body::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-#detleng-popup-body::-webkit-scrollbar-track{
-
-background:#f1f5f9;
-border-radius:10px;
-
-}
-
-#detleng-popup-body::-webkit-scrollbar-thumb{
-
-background:#60a5fa;
-border-radius:10px;
-
-}
-
-#detleng-popup-body::-webkit-scrollbar-thumb:hover{
-
-background:#2563eb;
-
-}
-
 `;
 
 document.head.appendChild(style);
 
-document.head.appendChild(style);
+  // =========================
+  // CHAT PANEL
+  // =========================
 
-function makeLinksClickable(text){
+  const panel = document.createElement("div");
 
+  panel.style.position = "fixed";
+  panel.style.bottom = "90px";
+  panel.style.right = "20px";
+  panel.style.width = "360px";
+  panel.style.height = "520px";
+  panel.style.background = "#ffffff";
+  panel.style.border = "1px solid #ddd";
+  panel.style.borderRadius = "12px";
+  panel.style.display = "none";
+  panel.style.zIndex = "99999";
+  panel.style.boxShadow = "0 4px 20px rgba(0,0,0,.2)";
+  panel.style.overflow = "hidden";
+
+  panel.innerHTML = `
+  <div style="
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    font-weight:bold;
+    font-size:16px;
+  ">
+    Agents DeTLeng AI Assistant
+  </div>
+
+  <div id="chatMessages"
+      style="
+        height:360px;
+        padding:12px;
+        overflow-y:auto;
+        font-size:14px;
+        line-height:1.6;
+      ">
+
+    <div style="
+        <div style="
+    background:#f5f7ff;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:10px;
+">
+
+<b>👋 Welcome!</b>
+
+<br><br>
+
+We help businesses build reliable data foundations for reporting, analytics, automation, and business intelligence.
+
+<br><br>
+
+🌍 You can ask me about:
+
+<br><br>
+
+<ul style="display:flex;flex-wrap:wrap;gap:10px 25px;">
+<li>🤖 AI Agents</li>
+<li>⚙ Intelligent Automation</li>
+<li>💼 Business Applications</li>
+<li>📚 Resources</li>
+<li>📖 Case Studies</li>
+<li>🌐 DeTLeng Ecosystem</li>
+<li>📞 Contact Information</li>
+</ul>
+
+💬 Ask your question below and I'll do my best to help.
+
+</div>
+
+  </div>
+
+  <div style="
+      padding:10px;
+      border-top:1px solid #ddd;
+      display:flex;
+      gap:8px;
+  ">
+
+    <input
+      id="chatInput"
+      type="text"
+      placeholder="How can AI help your business?"
+      style="
+        flex:1;
+        padding:8px;
+        border:1px solid #ccc;
+        border-radius:6px;
+      "
+    />
+
+    <button
+      id="sendBtn"
+      style="
+        padding:8px 12px;
+        background:#2563eb;
+        color:white;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+      ">
+      Ask AI
+    </button>
+
+  </div>
+  `;
+
+  // =========================
+  // OPEN CLOSE
+  // =========================
+
+  bubble.onclick = () => {
+
+    panel.style.display =
+      panel.style.display === "none"
+      ? "block"
+      : "none";
+
+  };
+
+  document.body.appendChild(bubble);
+  document.body.appendChild(panel);
+
+  // =========================
+  // CHAT LOGIC
+  // =========================
+
+function makeLinksClickable(text) {
   return text.replace(
     /(https?:\/\/[^\s<]+)/g,
-    function(url){
+    function(url) {
 
       const cleanUrl = url.replace(/[.,!?;:]+$/, '');
 
-      return `<a href="${cleanUrl}"
-        target="_blank"
-        style="color:#2563eb;font-weight:600;">
+      return `<a href="${cleanUrl}" target="_blank"
+        style="color:#2563eb;font-weight:bold;">
         ${cleanUrl}
       </a>`;
-
     }
   );
-
 }
 
-/* ==========================================================
-   Events
-========================================================== */
+  setTimeout(() => {
 
-bubble.onclick = function(){
+    const sendBtn =
+      document.getElementById("sendBtn");
 
-    if(
-        popup.style.display === "none" ||
-        popup.style.display === ""
-    ){
+    const chatInput =
+      document.getElementById("chatInput");
 
-        popup.style.display = "block";
+    const chatMessages =
+      document.getElementById("chatMessages");
+      let chatHistory = [];
 
-    }else{
+    sendBtn.onclick = async () => {
 
-        popup.style.display = "none";
+      const question = chatInput.value.trim();
 
-    }
+      if (!question) return;
 
-};
-
-setTimeout(() => {
-
-  const sendBtn = document.getElementById("sendBtn");
-  const chatInput = document.getElementById("chatInput");
-  const chatBody = document.getElementById("detleng-popup-body");
-
-  let chatHistory = [];
-
-  async function sendMessage(){
-
-    const question = chatInput.value.trim();
-
-    if(!question) return;
-
-    chatBody.innerHTML += `
-      <div style="
-        margin-top:15px;
-        text-align:right;
-      ">
-        <div style="
-          display:inline-block;
-          background:#2563eb;
-          color:#fff;
-          padding:10px 14px;
-          border-radius:12px;
-          max-width:85%;
-        ">
-          ${question}
-        </div>
-      </div>
-    `;
-
-    chatInput.value = "";
-
-    chatBody.scrollTop = chatBody.scrollHeight;
-
-    try{
-
-      const response = await fetch(
-        "https://aapkaustaad-ai-backend.onrender.com/chat",
-        {
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify({
-            message:question,
-            domain:window.location.origin,
-            history:chatHistory
-          })
-        }
-      );
-
-      const data = await response.json();
-
-      const answer = data.answer || "Sorry, no response available.";
-
-      chatHistory.push({
-        role:"user",
-        content:question
-      });
-
-      chatHistory.push({
-        role:"assistant",
-        content:answer
-      });
-
-      chatBody.innerHTML += `
-        <div style="margin-top:15px;">
-          <div style="
-            display:inline-block;
-            background:#f3f4f6;
-            padding:12px;
-            border-radius:12px;
-            max-width:90%;
-            line-height:1.7;
-          ">
-            <b>🤖 Agents DeTLeng</b><br><br>
-            ${makeLinksClickable(answer)}
-          </div>
+      chatMessages.innerHTML += `
+        <div style="margin-top:10px;">
+          <b>You:</b> ${question}
         </div>
       `;
 
-    }catch(err){
+      chatInput.value = "";
 
-      chatBody.innerHTML += `
-        <div style="
-          margin-top:15px;
-          color:red;
-        ">
-          Unable to connect to AI server.
-        </div>
-      `;
+      try {
 
-    }
+        const response = await fetch(
+          "https://aapkaustaad-ai-backend.onrender.com/chat",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+               message: question,
+               domain: window.location.origin,
+               history: chatHistory
+            })
+          }
+        );
 
-    chatBody.scrollTop = chatBody.scrollHeight;
+        const data = await response.json();
 
-  }
-
-  sendBtn.onclick = sendMessage;
-
-  chatInput.addEventListener("keypress",function(e){
-
-    if(e.key==="Enter"){
-      sendMessage();
-    }
-
-  });
-
-},500);
-
-document.addEventListener("click",function(e){
-
-if(e.target.id==="closeDetlengPopup"){
-
-popup.style.display="none";
-
-}
-
+const answer = data.answer || "";
+        chatHistory.push({
+    role: "user",
+    content: question
 });
 
+chatHistory.push({
+    role: "assistant",
+    content: answer
+});
 
-/* ==========================================================
-   Render
-========================================================== */
+chatMessages.innerHTML += `
+  <div style="
+    margin-top:10px;
+    padding:8px;
+    background:#f7f7f7;
+    border-radius:8px;
+  ">
+    <b>Agents DeTLeng:</b><br>
+    ${makeLinksClickable(answer)}
+  </div>
+`;
 
-document.body.appendChild(bubble);
+if (data.whatsapp) {
 
-document.body.appendChild(popup);
+  chatMessages.innerHTML += `
+    <div style="margin-top:12px;">
 
+      <a href="${data.whatsapp}"
+         target="_blank"
+         style="
+            display:inline-block;
+            background:#25D366;
+            color:white;
+            padding:10px 18px;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:bold;
+        ">
 
-/* ==========================================================
-   END
-========================================================== */
+        📩 Request a Free Consultation
+
+      </a>
+
+    </div>
+  `;
+
+}
+
+chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+      
+
+      } catch (err) {
+
+        chatMessages.innerHTML += `
+          <div style="
+            color:red;
+            margin-top:10px;
+          ">
+            Unable to connect to the DeTLeng AI service. Please try again later.
+          </div>
+        `;
+
+      }
+
+      chatMessages.scrollTop =
+        chatMessages.scrollHeight;
+    };
+
+    chatInput.addEventListener(
+      "keypress",
+      function(e){
+
+        if(e.key === "Enter"){
+          sendBtn.click();
+        }
+
+      }
+    );
+
+  }, 500);
 
 })();
